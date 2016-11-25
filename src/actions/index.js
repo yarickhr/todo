@@ -25,7 +25,7 @@ export function logId(id) {
     return function (dispatch) {
         setTimeout(function () {
             dispatch(delTodos(id))
-            console.log('Hello I am function')
+            console.log('Hello I am function logId')
             }, 1000)
     }
 }
