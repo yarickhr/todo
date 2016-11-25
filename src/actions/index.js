@@ -15,7 +15,17 @@ export const toggleTodo = (id) => ({
   id
 })
 
-export const delTodos = (id) => ({
+const delTodos = (id) => ({
     type: 'DEL_TODO',
     id
 })
+
+
+export function logId(id) {
+    return function (dispatch) {
+        setTimeout(function () {
+            dispatch(delTodos(id))
+            console.log('Hello')
+            }, 1000)
+    }
+}
