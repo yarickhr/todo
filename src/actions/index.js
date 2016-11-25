@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 let nextTodoId = 0
 export const addTodo = (text) => ({
   type: 'ADD_TODO',
@@ -15,17 +17,20 @@ export const toggleTodo = (id) => ({
   id
 })
 
-const delTodos = (id) => ({
-    type: 'DEL_TODO',
+const addName = (id, login) => ({
+    type: 'ADD_LOGIN',
+    payload: login,
     id
 })
 
 
-export function logId(id) {
+export const addLogin = (id) => {
     return function (dispatch) {
-        setTimeout(function () {
-            dispatch(delTodos(id))
-            console.log('Hello I am function logId')
-            }, 1000)
+            fetch('https://api.github.com/users/yarickhr')
+                .then(response => response.json())
+                .then(data => {
+                    dispatch(addName(id, data.login))
+                })
+            console.log('Hello I am add a image')
     }
 }

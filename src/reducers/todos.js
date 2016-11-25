@@ -23,12 +23,12 @@ const todo = (state, action) => {
 
 const deltodo = (state, action) => {
     switch (action.type) {
-        case 'DEL_TODO':
+        case 'ADD_LOGIN':
             if (state.id == action.id) {
                 return {
                     id: action.id,
-                    completed: true,
-                    text: 'I am del'
+                    completed: false,
+                    text: action.payload
                 }
             }
 
@@ -49,7 +49,7 @@ const todos = (state = [], action) => {
         todo(t, action)
       )
 
-    case 'DEL_TODO':
+    case 'ADD_LOGIN':
       return state.map(obj =>
             deltodo(obj, action)
         )

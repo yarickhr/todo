@@ -10,7 +10,7 @@ const Todo = ({ onClick, completed, text, ondelClick }) => (
         >
         {text}
         </li>
-        <button onClick={ondelClick}>DELETE</button>
+        <button onClick={ondelClick}>GET LOGIN</button>
     </div>
 )
 
